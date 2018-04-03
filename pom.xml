@@ -1,0 +1,54 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.springframework.guides</groupId>
+    <artifactId>org.apache.geode.demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>Geode Demo Apps</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring.data.geode>2.0.5.RELEASE</spring.data.geode>
+        <junit>4.12</junit>
+        <spring>5.0.4.RELEASE</spring>
+        <spring-boot>1.5.10.RELEASE</spring-boot>
+        <derby>10.14.1.0</derby>
+    </properties>
+
+    <modules>
+        <module>FastFootShoesClusterSideLogic</module>
+        <module>FastFootShoesDataBaseChecker</module>
+        <module>FastFootShoesHistoricDataLoader</module>
+        <module>FastFootShoesModel</module>
+        <module>FastFootShoesRetailApp</module>
+        <module>FastFootShoesTransactionSimulator</module>
+    </modules>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <compilerVersion>1.8</compilerVersion>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>
+                        ${project.build.directory}
+                    </outputDirectory>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

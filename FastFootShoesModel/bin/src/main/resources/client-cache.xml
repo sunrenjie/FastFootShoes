@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:gfe="http://www.springframework.org/schema/geode"
+       xmlns:gfe-data="http://www.springframework.org/schema/data/geode"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/data/geode 
+	http://www.springframework.org/schema/data/geode/spring-data-geode.xsd
+
+
+	http://www.springframework.org/schema/geode 
+	http://www.springframework.org/schema/geode/spring-geode.xsd">
+
+    <bean id="pdxSerializer" class="org.apache.geode.pdx.ReflectionBasedAutoSerializer">
+        <constructor-arg value="org.apache.geode.demo.fastfootshoes.model.*"/>
+    </bean>
+
+    <gfe:client-cache pool-name="gemfirePool" pdx-serializer-ref="pdxSerializer"/>
+
+    <gfe:client-region id="Customer" pool-name="gemfirePool"/>
+    <gfe:client-region id="Product" pool-name="gemfirePool"/>
+    <gfe:client-region id="Transaction" pool-name="gemfirePool"/>
+    <gfe:client-region id="MarkUp" pool-name="gemfirePool"/>
+    <gfe:client-region id="Alert" pool-name="gemfirePool"/>
+    <gfe:client-region id="TransactionSummary" pool-name="gemfirePool"/>
+
+    <gfe:pool id="gemfirePool">
+        <gfe:locator host="ec2-54-175-236-76.compute-1.amazonaws.com" port="10334"/>
+        <gfe:locator host="ec2-54-175-236-76.compute-1.amazonaws.com" port="10335"/>
+    </gfe:pool>
+
+    <context:component-scan base-package="org.apache.geode.demo.fastfootshoes.clusterside.functions"/>
+    <gfe-data:function-executions base-package="org.apache.geode.demo.fastfootshoes.clusterside.functions"/>
+    <gfe:annotation-driven/>
+    <gfe-data:repositories base-package="org.apache.geode.demo.fastfootshoes.repositories"/>
+
+
+</beans>
