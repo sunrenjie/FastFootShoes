@@ -47,7 +47,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-messaging</artifactId>
-            <version>${spring}</version>
         </dependency>
 
         <dependency>
@@ -105,7 +104,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring}</version>
         </dependency>
     </dependencies>
 
