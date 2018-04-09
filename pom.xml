@@ -136,7 +136,7 @@
                 <artifactId>maven-dependency-plugin</artifactId>
                 <configuration>
                     <outputDirectory>
-                        ${project.build.directory}
+                        ${project.build.directory}/libs <!-- to separate project jars from lib jars -->
                     </outputDirectory>
                 </configuration>
             </plugin>
