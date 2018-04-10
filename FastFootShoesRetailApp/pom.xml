@@ -4,15 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.guides</groupId>
-        <artifactId>org.apache.geode.demo</artifactId>
+        <groupId>org.apache.geode.demo</groupId>
+        <artifactId>FastFootShoes</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.apache.geode.demo.fastfootshoes</groupId>
     <artifactId>FastFootShoesRetailApp</artifactId>
     <description>Application for tracking retail sales</description>
-    <version>0.0.1-RELEASE</version>
 
     <dependencies>
         <dependency>

@@ -3,14 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.guides</groupId>
-        <artifactId>org.apache.geode.demo</artifactId>
+        <groupId>org.apache.geode.demo</groupId>
+        <artifactId>FastFootShoes</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.apache.geode.demo</groupId>
     <artifactId>FastFootShoesModel</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>FastFootShoesModel</name>
     <description>This package contains the Pojos for the applications, the Repositories to do all data operations and
         the client cache configuration.

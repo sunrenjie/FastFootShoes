@@ -3,14 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.guides</groupId>
-        <artifactId>org.apache.geode.demo</artifactId>
+        <groupId>org.apache.geode.demo</groupId>
+        <artifactId>FastFootShoes</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.apache.geode.demo</groupId>
     <artifactId>FastFootShoesClusterSideLogic</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>FastFootShoesClusterSideLogic</name>
     <description>CacheListeners, Functions and Write Through Logic</description>
 
