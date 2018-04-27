@@ -106,6 +106,15 @@ public class CacheLoader {
         };
         loadMarkUps("markUps.csv", nameMapping, processors);
 
+        // load the alerts
+        nameMapping = new String[]{"id", "message", "messageDate"};
+        processors = new CellProcessor[]{
+                new NotNull(), // id
+                new NotNull(), // message
+                new ParseDate("yyyy-MM-dd HH:mm:ss Z") // messageDate
+        };
+        loadAlerts("alerts.csv", nameMapping, processors);
+
         //clean out the alerts
         for (Alert alert : alertRepository.findAll()) {
             alertRepository.delete(alert);
@@ -220,6 +229,23 @@ public class CacheLoader {
             errorLog.add(e.toString());
         }
         activityLog.add("Mark Ups: Records Read: " + markUpCount + RECORDS_ADDED_TO_GEM_FIRE + markupRepository.count());
+    }
+
+    private void loadAlerts(String file, String[] nameMapping, CellProcessor[] processors) {
+        System.out.println("Started loading the alerts");
+        initalizeBeanReader(file);
+        Alert alert;
+        List<Alert> alertPuts = new ArrayList<Alert>();
+        int count = 0;
+        try {
+            while ((alert = beanReader.read(Alert.class, nameMapping, processors)) != null) {
+                alertPuts.add(alert);
+                alertRepository.saveAll(alertPuts);
+            }
+        } catch (IOException e) {
+            errorLog.add(e.toString());
+        }
+        activityLog.add("Alerts: Records read: " + count + RECORDS_ADDED_TO_GEM_FIRE + alertRepository.count());
     }
 
     private void initalizeBeanReader(String file) {

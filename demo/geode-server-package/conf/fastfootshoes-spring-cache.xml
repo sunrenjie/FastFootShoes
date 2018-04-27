@@ -30,6 +30,8 @@
     <bean id="transactionListener"
           class="org.apache.geode.demo.fastfootshoes.clusterside.listeners.TransactionListener"/>
 
+    <bean id="alertCacheListener" class="org.apache.geode.demo.fastfootshoes.clusterside.listeners.AlertCacheListener" />
+
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver"/>
         <property name="url" value="jdbc:derby://u1:1527/fastfootshoes;create=true"/>
@@ -47,6 +49,7 @@
 
     <!-- configure the regions and wire in event extensions -->
     <gfe:partitioned-region close="true" id="Alert" copies="1">
+        <gfe:cache-listener ref="alertCacheListener"/>
         <gfe:cache-writer ref="alertCacheWriter"/>
     </gfe:partitioned-region>
 

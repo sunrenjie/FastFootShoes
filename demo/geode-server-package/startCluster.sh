@@ -63,7 +63,7 @@ echo gfsh start server \
   --server-port=0 \
   --log-level=config \
   --dir=$SERVER_DIR_LOCATION/$NAME \
-  --locators=$LOCATOR_HOST_1[$LOCATOR_PORT_1],LOCATOR_HOST_2[$LOCATOR_PORT_2] \
+  --locators=$LOCATOR_HOST_1[$LOCATOR_PORT_1],$LOCATOR_HOST_2[$LOCATOR_PORT_2] \
   --J=-Dgemfire.http-service-port=$HTTP_PORT \
   --J=-Dgemfire.start-dev-rest-api=true \
   --J=-Xms256m \
