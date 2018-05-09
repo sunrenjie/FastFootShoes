@@ -1,13 +1,11 @@
 <!DOCTYPE HTML>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml"
-      layout:decorator="layout">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head(~{this :: title}, ~{})">
     <title>Fast Foot Customers Rule!</title>
 </head>
 <body>
-<div layout:fragment="content">
+<div th:insert="layout :: content(~{ :: #main-content})">
+    <div id="main-content">
     <table id="products" class="table table-hover">
         <thead>
         <tr>
@@ -47,6 +45,7 @@
         </tr>
         </tbody>
     </table>
+    </div>
 </div>
 </body>
 </html>

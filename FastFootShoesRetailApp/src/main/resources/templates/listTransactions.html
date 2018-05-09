@@ -1,18 +1,16 @@
 <!DOCTYPE HTML>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml"
-      layout:decorator="layout">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head(~{this :: title}, ~{this :: .customization})">
     <title>Fast Foot Customers Rule!</title>
-    <script type="text/javascript" charset="utf-8">
+    <script class="customization" type="text/javascript" charset="utf-8">
         $(document).ready(function () {
             $('#transactions').dataTable();
         });
     </script>
 </head>
 <body>
-<div layout:fragment="content">
+<div th:insert="layout :: content(~{ :: #main-content})">
+    <div id="main-content">
     <table class="table table-condensed table-hover" id="transactions">
         <tr>
             <th>Customer Id</th>
@@ -49,6 +47,7 @@
         </tr>
         </tbody>
     </table>
+    </div>
 </div>
 </body>
 </html>

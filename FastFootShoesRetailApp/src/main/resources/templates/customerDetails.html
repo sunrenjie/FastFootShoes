@@ -1,15 +1,11 @@
 <!DOCTYPE HTML>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml"
-      layout:decorator="layout">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head(~{this :: title}, ~{})">
     <title>Fast Foot Customers Rule!</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
 </head>
 <body>
-<div layout:fragment="content">
+<div th:insert="layout :: content(~{ :: #main-content})">
+    <div id="main-content">
     <h4>Customer Details:</h4>
     <form class="form-horizontal" action="#" th:action="@{/updateCustomer}" th:object="${cust}" method="post">
         <input type="hidden" id="id" name="id" th:value="*{id}" size="80"/>
@@ -84,6 +80,7 @@
             </tr>
         </table>
     </div>
+    </div>
 </div>
 </body>
-</html> 
+</html>
