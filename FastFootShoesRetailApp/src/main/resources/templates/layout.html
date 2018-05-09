@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Layout page</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title, customization)">
+    <title th:replace="${title}">Layout page</title>
 
     <!-- Boot Strap CSS -->
     <link rel="stylesheet" media="screen" th:href="@{/css/bootstrap.min.css}"/>
@@ -40,10 +38,10 @@
 
     <!-- Project JS -->
     <script type="text/javascript" th:src="@{js/gf-textautocomplete.js}"></script>
-
+    <th:block th:replace="${customization}"/>
 </head>
 <body>
-<div class="container">
+<div class="container" th:fragment="content(value)">
     <div class='title'><h1>Fast Foot Shoes</h1></div>
     <div class="navbar">
         <ul class="nav navbar-nav">
@@ -54,7 +52,7 @@
             <li><a href="/listMarkUps">Discount Program</a></li>
         </ul>
     </div> <!--navbar-->
-    <div layout:fragment="content">
+    <div th:replace="${value}">
         Page contents go here
     </div>
     <footer>
