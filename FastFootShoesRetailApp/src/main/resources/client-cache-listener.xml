@@ -36,6 +36,12 @@
         <gfe:locator host="${cluster.location}" port="10335"/>
     </gfe:pool>
 
+    <bean id="cqListener" class="org.apache.geode.demo.fastfootshoes.application.listeners.CQListener"/>
+
+    <gfe:cq-listener-container id="cqListenerContainer">
+        <gfe:listener ref="cqListener" query="select * from /Product"/>
+    </gfe:cq-listener-container>
+
     <context:component-scan base-package="org.apache.geode.demo.fastfootshoes.clusterside.functions"/>
     <gfe-data:function-executions base-package="org.apache.geode.demo.fastfootshoes.clusterside.functions"/>
     <gfe:annotation-driven/>
