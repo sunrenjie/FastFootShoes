@@ -11,7 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <geode>1.5.0</geode>
+        <geode>1.8.0-SNAPSHOT</geode>
         <spring.data.geode>2.0.6.RELEASE</spring.data.geode>
         <junit>4.12</junit>
         <spring>5.0.5.RELEASE</spring>
@@ -111,6 +111,22 @@
                 <groupId>org.apache.geode</groupId>
                 <artifactId>geode-lucene</artifactId>
                 <version>${geode}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-analyzers-common</artifactId>
+                <version>6.6.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-queryparser</artifactId>
+                <version>6.6.2</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>lucene-sandbox</artifactId>
+                        <groupId>*</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.apache.geode</groupId>
