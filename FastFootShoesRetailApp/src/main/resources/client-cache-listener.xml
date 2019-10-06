@@ -19,7 +19,9 @@
 
     <gfe:client-cache pool-name="gemfirePool" pdx-serializer-ref="pdxSerializer"/>
 
+    <!-- No need to define it manually, as the bean is created in component-scan.
     <bean class="org.apache.geode.demo.fastfootshoes.application.listeners.ProductListener" id="productListener"/>
+    -->
 
     <gfe:client-region id="Customer" pool-name="gemfirePool"/>
     <gfe:client-region id="Product" pool-name="gemfirePool">
@@ -32,8 +34,8 @@
     <gfe:client-region id="TransactionSummary" pool-name="gemfirePool"/>
 
     <gfe:pool id="gemfirePool" subscription-enabled="true">
-        <gfe:locator host="${cluster.location}" port="10334"/>
-        <gfe:locator host="${cluster.location}" port="10335"/>
+        <gfe:locator host="${host1.location}" port="10334"/>
+        <gfe:locator host="${host2.location}" port="10335"/>
     </gfe:pool>
 
     <bean id="cqListener" class="org.apache.geode.demo.fastfootshoes.application.listeners.CQListener"/>

@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:gfe="http://www.springframework.org/schema/geode"
        xmlns:gfe-data="http://www.springframework.org/schema/data/geode"
-       xmlns:util="http://www.springframework.org/schema/util"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/data/geode http://www.springframework.org/schema/data/geode/spring-data-geode.xsd
-		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 		http://www.springframework.org/schema/geode http://www.springframework.org/schema/geode/spring-geode.xsd">
-
-
-    <util:properties id="peerCacheConfigurationSettings">
-        <prop key="name">springGemFirePeerCache</prop>
-        <prop key="locators">localhost[11235]</prop>
-        <prop key="log-level">config</prop>
-        <prop key="mcast-port">0</prop>
-    </util:properties>
 
     <bean id="pdxSerializer" class="org.apache.geode.pdx.ReflectionBasedAutoSerializer">
         <constructor-arg value="org.apache.geode.demo.fastfootshoes.model.*"/>
     </bean>
 
-    <gfe:cache properties-ref="peerCacheConfigurationSettings" pdx-serializer-ref="pdxSerializer"/>
+    <gfe:cache pdx-serializer-ref="pdxSerializer" />
 
     <gfe:cache-server auto-startup="true" port="0" cache-ref="gemfireCache"/>
 

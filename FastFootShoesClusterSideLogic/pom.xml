@@ -62,6 +62,14 @@
             <artifactId>spring-data-geode</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.apache.geode.demo</groupId>
             <artifactId>FastFootShoesModel</artifactId>
             <version>0.0.1-SNAPSHOT</version>
