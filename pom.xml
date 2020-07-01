@@ -17,7 +17,7 @@
         <spring>5.1.10.RELEASE</spring>
         <spring-boot>2.1.9.RELEASE</spring-boot>
         <derby>10.14.1.0</derby>
-        <log4j>2.10.0</log4j>
+        <log4j>2.13.3</log4j>
     </properties>
 
     <modules>
