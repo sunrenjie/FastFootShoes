@@ -11,7 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <geode>1.10.0</geode>
+        <geode>1.12.5</geode>
         <spring.data.geode>2.1.11.RELEASE</spring.data.geode>
         <junit>4.12</junit>
         <spring>5.1.10.RELEASE</spring>
