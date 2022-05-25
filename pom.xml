@@ -14,7 +14,7 @@
         <geode>1.10.0</geode>
         <spring.data.geode>2.1.11.RELEASE</spring.data.geode>
         <junit>4.12</junit>
-        <spring>5.1.10.RELEASE</spring>
+        <spring>5.2.22.RELEASE</spring>
         <spring-boot>2.1.9.RELEASE</spring-boot>
         <derby>10.14.1.0</derby>
         <log4j>2.10.0</log4j>
